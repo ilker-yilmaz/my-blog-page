@@ -10,6 +10,20 @@ export default function PostPage({ post }) {
     components: mdxComponents
   })
 
+  const onSubmit = async (e) => {
+    e.preventDefault()
+
+    //text, user, url
+
+    const response = await fetch("/api/comment",{
+      method: "POST",
+      body: JSON.stringify({text: "asd", user:"ilker", url:"http://"})
+    })
+
+
+
+  }
+
   return (
     <div className="site-container">
       <article>
@@ -19,7 +33,7 @@ export default function PostPage({ post }) {
         <div className={'prose'}>{content}</div>
       </article>
 
-      <form className="mt-10">
+      <form className="mt-10" onSubmit={onSubmit}>
         <textarea
           rows="3"
           className="border border-gray-300 rounded  w-full block px-2 py-1"
