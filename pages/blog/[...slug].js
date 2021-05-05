@@ -12,7 +12,7 @@ export default function PostPage({ post }) {
   const content = useHydrate(post, {
     components: mdxComponents
   })
-  
+
   return (
     <div className='site-container'>
       <article>
