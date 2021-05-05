@@ -2,9 +2,37 @@ import { getMdxNode, getMdxPaths } from 'next-mdx/server'
 import { useHydrate } from 'next-mdx/client'
 import { mdxComponents } from '../../components/mdx-components'
 import { useAuth0 } from '@auth0/auth0-react'
+import { useEffect, useState } from 'react'
+import Form from '../../components/form'
+import {DateTime} from 'luxon'
+import Comments from '../../components/comments'
 
 export default function PostPage({ post }) {
-  const { loginWithRedirect, logout, isAuthenticated, user } = useAuth0()
+  const { getAccessTokenSilently } = useAuth0()
+  const [text, textSet] = useState("")
+  const [url, urlSet] = useState(null)
+  const [comments, commentsSet] = useState([] )
+
+  const fetchComment =async ()=>{
+    const query =new URLSearchParams({url})
+    const newUrl =`/api/comment?${query.toString()}`
+    const response = await fetch(newUrl,{
+      method:'GET'
+    })
+    const data = await response.json()
+    commentsSet(data)
+  }
+
+  useEffect(()=>{
+    if(!url) return
+    fetchComment()
+  }, [url])
+
+  useEffect(()=>{
+    const url = window.location.origin + window.location.pathname
+    urlSet(url)
+
+  },[])
 
   const content = useHydrate(post, {
     components: mdxComponents
@@ -13,13 +41,20 @@ export default function PostPage({ post }) {
   const onSubmit = async (e) => {
     e.preventDefault()
 
-    //text, user, url
+    const userToken = await getAccessTokenSilently()
 
-    const response = await fetch("/api/comment",{
-      method: "POST",
-      body: JSON.stringify({text: "asd", user:"ilker", url:"http://"})
+
+    await fetch("/api/comment",{
+      method: 'POST',
+      body: JSON.stringify({text, userToken, url}),
+      headers:{
+        'Content-Type':'application/json'
+      }
     })
 
+
+    fetchComment()
+    textSet('')
 
 
   }
@@ -33,40 +68,11 @@ export default function PostPage({ post }) {
         <div className={'prose'}>{content}</div>
       </article>
 
-      <form className="mt-10" onSubmit={onSubmit}>
-        <textarea
-          rows="3"
-          className="border border-gray-300 rounded  w-full block px-2 py-1"
-        />
 
-        <div className="mt-4">
-          {isAuthenticated ? (
-            <div className="flex items-center space-x-2">
-              <button className="bg-blue-600 text-white px-2 py-1 rounded">
-                Send
-              </button>
-              <img src={user.picture} width={30} className="rounded-full" />
-              <span>{user.name}</span>
-              <button
-                typeof="button"
-                onClick={() =>
-                  logout({ returnTo: process.env.NEXT_PUBLIC_URL + '/blog' })
-                }
-              >
-                X
-              </button>
-            </div>
-          ) : (
-            <button
-              className="bg-blue-600 text-white px-2 py-1 rounded"
-              typeof="button"
-              onClick={() => loginWithRedirect()}
-            >
-              Login
-            </button>
-          )}
-        </div>
-      </form>
+      <Form onSubmit={onSubmit} textSet={textSet} text={text}></Form>
+
+      <Comments comments={comments}></Comments>
+
     </div>
   )
 }
