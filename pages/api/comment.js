@@ -1,6 +1,12 @@
 import { nanoid } from 'nanoid'
 import Redis from 'ioredis'
+import Boom from '@hapi/boom'
 
+function errorResponse(res, error){
+  const { output } = error
+  return res.status(output.statusCode).json(error.output.payload)
+
+}
 
 export default async function handler(req, res) {
 
@@ -8,8 +14,11 @@ export default async function handler(req, res) {
   if (req.method === 'POST') {
     const { url, userToken, text } = req.body
 
-    if (!url || !userToken || !text)
-      return res.status(400).json({ message: 'parametreler eksik veya hatalı' })
+
+    if (!url || !userToken || !text){
+      return errorResponse(res,Boom.badData("parametre eksik"))
+    }
+
 
     const userResponse = await fetch(
       `https://${process.env.NEXT_PUBLIC_AUTH0_DOMAIN}/userinfo`,
