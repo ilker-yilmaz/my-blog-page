@@ -9,6 +9,7 @@ export default function Header() {
         <Link href="/blog">
           <a>Yazılar</a>
         </Link>
+
       </nav>
     </header>
   )
