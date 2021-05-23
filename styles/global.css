@@ -17,38 +17,10 @@
     }
 
 
-    /*details > summary{
-        border-radius: 5px;
-        cursor: pointer;
-        margin: -1%;
-        padding: 8px 10px;
-        background: -webkit-linear-gradient(top, #f3f3f3 50%, #e6e6e6 50%);
-    }
-    details > p {
-        background-color: #eeeeee;
-        padding: 4px;
-        margin: 0;
-        box-shadow: 1px 1px 2px #bbbbbb;
-    }*/
-
     .prose a {
-        color: cornflowerblue;
+        color: darkcyan;
     }
-    /*details > li {
-        background-color: #eeeeee;
-        padding: 4px;
-        margin: 0;
-        box-shadow: 1px 1px 2px #bbbbbb;
-    }
-    details >summary {
-        border: 1px solid #999;
-        border-radius: 5px;
-        margin:2px;
-        padding: 1.04%;
-    }*/
 
-
-    /**************************************/
 
     summary, details { display: block; }
 
@@ -67,7 +39,7 @@
 
     details summary { cursor: pointer; padding: 1em; padding-left: 3rem; margin-top: 0; }
 
-    details { background: linear-gradient(#999,#ddd); border-radius: .1em; padding-top: 0;width:18em;color: #000; }
+    details { background: linear-gradient(#ddd,#ddd); border-radius: .1em; padding-top: 0;width:18em;color: #000; }
 
     details summary::before { content:"►"; font-size: 1em; position: relative; left: -1em; transition: .3s linear; }
 
@@ -82,7 +54,7 @@
     details.no-details[open] { max-height: 20em; padding-bottom: 1em; }
 
     details p { display: block; }
-    summary:focus {outline:yellow solid 2px;}
+    summary:focus {outline:aqua solid 2px;}
     details summary::-webkit-details-marker { display:none; }
 
 
