@@ -9,4 +9,10 @@
     .site-4xl-container{
         @apply max-w-2xl mx-auto px-6
     }
+    .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 30%;
+    }
 }

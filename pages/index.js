@@ -16,7 +16,7 @@ function HomePage() {
       </div>
 
       <div className="site-4xl-container mt-20">
-        <img src="/ortakoycamii2.jpg" alt="" />
+        <img src="/pp.jpg" alt="" className="center"/>
       </div>
     </>
   )
