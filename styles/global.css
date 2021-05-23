@@ -48,6 +48,8 @@
     }*/
 
 
+    /**************************************/
+
     summary, details { display: block; }
 
     details { visibility: hidden; }
