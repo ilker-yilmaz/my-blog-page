@@ -1606,7 +1606,7 @@ clipboard@^2.0.0:
     select "^1.1.2"
     tiny-emitter "^2.0.0"
 
-clone@2.x:
+clone@2.x, clone@^2.1.0:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/clone/-/clone-2.1.2.tgz#1b7f4b9f591f1e8f83670401600345a02887435f"
   integrity sha1-G39Ln1kfHo+DZwQBYANFoCiHQ18=
@@ -1680,6 +1680,17 @@ commondir@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/commondir/-/commondir-1.0.1.tgz#ddd800da0c66127393cca5950ea968a3aaf1253b"
   integrity sha1-3dgA2gxmEnOTzKWVDqloo6rxJTs=
+
+comp@^1.10.0:
+  version "1.10.0"
+  resolved "https://registry.yarnpkg.com/comp/-/comp-1.10.0.tgz#32de12443775588f347b3a741b40f7f963f65f13"
+  integrity sha1-Mt4SRDd1WI80ezp0G0D3+WP2XxM=
+  dependencies:
+    brace-expansion "^1.1.7"
+    clone "^2.1.0"
+    html-es6cape "^1.0.5"
+    leven "^2.0.0"
+    set-dom "^7.4.2"
 
 concat-map@0.0.1:
   version "0.0.1"
@@ -2283,6 +2294,11 @@ hmac-drbg@^1.0.1:
     minimalistic-assert "^1.0.0"
     minimalistic-crypto-utils "^1.0.1"
 
+html-es6cape@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/html-es6cape/-/html-es6cape-1.0.5.tgz#f3a437883b0594a01b175a6a2833090920b37d85"
+  integrity sha1-86Q3iDsFlKAbF1pqKDMJCSCzfYU=
+
 html-tags@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/html-tags/-/html-tags-3.1.0.tgz#7b5e6f7e665e9fb41f30007ed9e0d41e97fb2140"
@@ -2546,6 +2562,11 @@ kind-of@^6.0.0, kind-of@^6.0.2:
   version "6.0.3"
   resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-6.0.3.tgz#07c05034a6c349fa06e24fa35aa76db4580ce4dd"
   integrity sha512-dcS1ul+9tmeD95T+x28/ehLgd9mENa3LsvDTtzm3vyBEO7RPptvAD+t44WVXaUjTBRcrpFeFlC8WCruUR456hw==
+
+leven@^2.0.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/leven/-/leven-2.1.0.tgz#c2e7a9f772094dee9d34202ae8acce4687875580"
+  integrity sha1-wuep93IJTe6dNCAq6KzORoeHVYA=
 
 line-column@^1.0.2:
   version "1.0.2"
@@ -3580,6 +3601,11 @@ semver@^6.0.0, semver@^6.1.1, semver@^6.1.2, semver@^6.3.0:
   version "6.3.0"
   resolved "https://registry.yarnpkg.com/semver/-/semver-6.3.0.tgz#ee0a64c8af5e8ceea67687b133761e1becbd1d3d"
   integrity sha512-b39TBaTSfV6yBrapU89p5fKekE2m/NwnDocOVruQFS1/veMgdzuPcnOM34M6CwxW8jH/lxEa5rBoDeUwu5HHTw==
+
+set-dom@^7.4.2:
+  version "7.5.2"
+  resolved "https://registry.yarnpkg.com/set-dom/-/set-dom-7.5.2.tgz#e1f013dc442d2e0b23279ea5ae436ab4d9af878f"
+  integrity sha512-IJFPF+cuS5aIfJsCnOmIWnBcuGXsgPFXNkmzmGelxwFUbJN/HFoVzfeseViK0NxGkpdYkInaM/fsnMg1dyyUNQ==
 
 setimmediate@^1.0.4:
   version "1.0.5"
