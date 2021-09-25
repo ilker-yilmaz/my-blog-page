@@ -7,7 +7,7 @@ function HomePage() {
             Ben ilker yılmaz. Yazılım mühendisliği öğrencisiyim.
           </h1>
           <p>
-            Fırat üniversitesi Teknoloji Fakültesi Yazılım Mühendisliği 2.
+            Fırat üniversitesi Teknoloji Fakültesi Yazılım Mühendisliği 3.
             sınıf.
           </p>
 
